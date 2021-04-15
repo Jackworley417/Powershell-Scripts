@@ -1,0 +1,2 @@
+Rem this is to finding all the database instances on a network
+[System.Data.Sql.SqlDataSourceEnumerator]::Instance.GetDataSources()
