@@ -1,0 +1,5 @@
+$AllDrives = Get-PSDrive -PSProvider 'FileSystem'
+foreach ($drive in $AllDrives)
+{
+    Get-ChildItem -path $drive.Root -recurse -include "OFF_catrts.exe"
+}
