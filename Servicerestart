@@ -1,0 +1,16 @@
+$ServiceName = 'SQL Server (MSSQLSERVER)' #change your service name here
+$arrService = Get-Service -Name $ServiceName
+
+if ($arrService.Status -eq 'Running'){ #If service status is equal to Running, this will restart the service
+	Restart-Service $ServiceName
+	write-host $arrService.status 
+    write-host 'Service is Restarting'
+    Start-Sleep -seconds 60
+    $arrService.Refresh()
+    }
+    break
+     else { # if the service status is anything besides Running, it will start the service
+        Start-Service $ServiceName
+        write-host 'Service is starting now'
+    }
+    break
